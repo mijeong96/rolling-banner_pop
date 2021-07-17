@@ -29,3 +29,16 @@ function move(){
     } 
     $list.css({ marginLeft : num });
 }
+
+createPop();
+
+function createPop(){
+    $("body")
+        .append(
+            $("<aside class='pop'>")
+                .append(
+                    $("<div class='con'>"),
+                    $("<span class='btnClose'>")
+                )
+        )
+}
