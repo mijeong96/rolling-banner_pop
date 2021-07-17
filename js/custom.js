@@ -13,6 +13,13 @@ var num = 0;
 
 //0.2초 간격으로 ul의 marginLeft값이 2px씩 계속 줄어듬
 setInterval(function(){
-    num-=2;
+
+    if(num < -240){
+        num = 0;
+        $list_li.first().appendTo($list);
+    }else{
+        num-=2;
+    } 
+       
     $list.css({ marginLeft : num });
 },20);
