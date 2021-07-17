@@ -20,6 +20,18 @@ $list.on("mouseleave", function(){
     timer = setInterval(move, interval);
 });
 
+//각 리스트 클릭시 동적으로 레이어 팝업 함수 호출
+$list_li.on("click", function(e){
+    e.preventDefault();
+    createPop();
+});
+
+//팝업닫기버튼 클릭시 해당 팝업 fadeout시키고 제거
+$(".pop .btnClose").on("click", function(){
+    console.log("clicked!!");
+    $(".pop").fadeOut(500);
+});
+
 function move(){
     if(num < -wid){
         num = 0;
@@ -30,15 +42,16 @@ function move(){
     $list.css({ marginLeft : num });
 }
 
-createPop();
-
 function createPop(){
     $("body")
         .append(
             $("<aside class='pop'>")
                 .append(
-                    $("<div class='con'>"),
-                    $("<span class='btnClose'>")
-                )
+                    $("<div class='con'>")
+                        .append(
+                            "<img src='img/loading.gif' class='loading'>"
+                        ),
+                    $("<span class='btnClose'>").text("close")
+                ).fadeIn()
         )
 }
