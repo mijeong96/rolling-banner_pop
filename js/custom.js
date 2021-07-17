@@ -24,6 +24,7 @@ $list.on("mouseleave", function(){
 $list_li.on("click", function(e){
     e.preventDefault();
     createPop();
+    callData();
 });
 
 //팝업닫기버튼 클릭시 해당 팝업 fadeout시키고 제거
@@ -55,4 +56,16 @@ function createPop(){
                     $("<span class='btnClose'>").text("close")
                 ).fadeIn()
         )
+}
+
+function callData(){
+    $.ajax({
+        url: "add1.html",
+        success: function(data){
+            console.log(data);
+        },
+        error: function(err){
+            console.error(err);
+        }
+    });
 }
