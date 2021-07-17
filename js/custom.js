@@ -23,8 +23,9 @@ $list.on("mouseleave", function(){
 //각 리스트 클릭시 동적으로 레이어 팝업 함수 호출
 $list_li.on("click", function(e){
     e.preventDefault();
-    createPop();
-    callData();
+    var targetURL = $(this).children("a").attr("href");
+
+    createPop(targetURL);   
 });
 
 //팝업닫기버튼 클릭시 해당 팝업 fadeout시키고 제거
@@ -44,7 +45,7 @@ function move(){
     $list.css({ marginLeft : num });
 }
 
-function createPop(){
+function createPop(targetURL){
     $("body")
         .append(
             $("<aside class='pop'>")
@@ -54,15 +55,18 @@ function createPop(){
                             "<img src='img/loading.gif' class='loading'>"
                         ),
                     $("<span class='btnClose'>").text("close")
-                ).fadeIn()
+                ).fadeIn(500, function(){
+                    callData(targetURL);
+                })
         )
 }
 
-function callData(){
+function callData(targetURL){
     $.ajax({
-        url: "add1.html",
+        url: targetURL,
         success: function(data){
             console.log(data);
+            $(".pop .con").html(data);
         },
         error: function(err){
             console.error(err);
