@@ -31,18 +31,16 @@
 </main>
 
 <!--
-<aside class="pop">
-	<div class="con">
-		<img src="img/loading.gif" class="loading">
-	</div>
-	<span class="btnClose">close</span>
-</aside>
-
 부모요소.html("바꿔치기할 자식태그");
 -- 기존요소 안쪽에 있는 콘텐츠를 모두 지워버리고 생성할 자식태그로 덮어쓰기
 
 부모요소.append("추가할 자식태그")
 -- 기존요소 안쪽에 기존 콘텐츠를 유지하면서 다음에 추가로 생성
+
+동적인 요소에 이벤트 연결하기
+event delegate (이벤트위임)
+-- 로딩된 이후에 동적으로 생긴 요소는 이벤트 연결이 안됨
+-- 항상 있는 상위 DOM요소에 이벤트 위임
 
 -->
 	

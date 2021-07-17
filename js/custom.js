@@ -27,9 +27,10 @@ $list_li.on("click", function(e){
 });
 
 //팝업닫기버튼 클릭시 해당 팝업 fadeout시키고 제거
-$(".pop .btnClose").on("click", function(){
-    console.log("clicked!!");
-    $(".pop").fadeOut(500);
+$("body").on("click", ".pop .btnClose", function(){    
+    $(".pop").fadeOut(500, function(){
+        $(this).remove();
+    });
 });
 
 function move(){
