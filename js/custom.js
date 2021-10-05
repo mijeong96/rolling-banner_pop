@@ -11,6 +11,20 @@ $(".listBox").on("mouseleave",function(){
     timer = setInterval(move,20);
 });
 
+$(".list li").on("click",function(e){
+    e.preventDefault();
+
+    $("body")
+        .append(
+            $("<aisde class='pop'>")
+                .append(
+                    $("<div class='con'>"),
+                    $("<span class='btnClose'>").text("close")
+                )
+                .fadeIn(500)
+        )
+})
+
 function move(){
     if(num <= -240){
         num=0;
