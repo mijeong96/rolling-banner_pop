@@ -11,6 +11,7 @@ $(".listBox").on("mouseleave",function(){
     timer = setInterval(move,20);
 });
 
+//썸네일 클릭시 동적 레이어팝업 생성
 $(".list li").on("click",function(e){
     e.preventDefault();
 
@@ -23,7 +24,12 @@ $(".list li").on("click",function(e){
                 )
                 .fadeIn(500)
         )
-})
+});
+
+//레이어 닫기버튼 클릭시 팝업 제거
+$("body").on("click",".pop .btnClose", function(){
+    alert("hi");
+});
 
 function move(){
     if(num <= -240){
