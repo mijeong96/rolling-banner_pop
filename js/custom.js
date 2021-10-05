@@ -28,7 +28,9 @@ $(".list li").on("click",function(e){
 
 //레이어 닫기버튼 클릭시 팝업 제거
 $("body").on("click",".pop .btnClose", function(){
-    alert("hi");
+    $(".pop").fadeOut(500,function(){
+        $(this).remove();
+    })
 });
 
 function move(){
