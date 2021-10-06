@@ -24,6 +24,20 @@ $(".list li").on("click",function(e){
                 )
                 .fadeIn(500)
         )
+
+        let target = $(this).children("a").attr("href");
+        console.log(target);
+
+        $.ajax({
+            url:target,
+            success:function(data){
+                console.log(data);
+                $(".pop .con").html(data);
+            },
+            error:function(err){
+                console.error("데이터를 불러오는 데 실패했습니다");
+            }
+        })
 });
 
 //레이어 닫기버튼 클릭시 팝업 제거
