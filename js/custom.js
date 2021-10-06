@@ -14,6 +14,9 @@ $(".listBox").on("mouseleave",function(){
 //썸네일 클릭시 동적 레이어팝업 생성
 $(".list li").on("click",function(e){
     e.preventDefault();
+    $(".pop").fadeOut(500,function(){
+        $(this).remove();
+    });
 
     $("body")
         .append(
